@@ -49,4 +49,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo '200';
+echo "OK";
