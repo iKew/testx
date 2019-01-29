@@ -5,9 +5,6 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'nbNiHyLgU5prZPC7JvvpNZgnX2zGYIihVT8tA4vQrdH1sILvxpfPjzM4YpBauEQkeIXVLtCUm1OY0yfvA6TtU+1sS8sp/+kdmSjZWENUDMWMq8vAkT0PJxsqYJdxtEqzsnvNfLTyCX45iVXfVV8lgFGUYhWQfeY8sLGRXgo3xvw=';
 
-
-$channelSecret = 'Ud17bfa215f666b2faa6052af50a56459';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -37,14 +34,6 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-			$response = $bot->pushMessage($post, $textMessageBuilder);
-
-			echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
