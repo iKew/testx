@@ -10,7 +10,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-
+echo 'xxx';
 	
 echo print_r($events);
 // Validate parsed JSON data
