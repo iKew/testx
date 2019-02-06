@@ -9,12 +9,9 @@ $access_token = 'nbNiHyLgU5prZPC7JvvpNZgnX2zGYIihVT8tA4vQrdH1sILvxpfPjzM4YpBauEQ
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-
-echo 'xxx';
-	
-echo print_r($events);
 // Validate parsed JSON data
-if (!is_null($events['events'])) {
+if (!is_null($events['responseId'])) {
+	echo "ok";
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
