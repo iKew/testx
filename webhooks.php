@@ -21,7 +21,7 @@ $replyToken = $content['responseId'];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
-				'replyToken' => '51df74ef-06f0-d225-cba8-d8a71a295b05',
+				'replyToken' => '68358027-f1e6-44a7-885e-7ead1610b8f1',
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
