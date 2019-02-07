@@ -15,7 +15,7 @@ $replyToken = $events['responseId'];
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $events['originalDetectIntentRequest']
+				'text' => 'dddd'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
