@@ -7,7 +7,7 @@ $access_token = 'nbNiHyLgU5prZPC7JvvpNZgnX2zGYIihVT8tA4vQrdH1sILvxpfPjzM4YpBauEQ
 
 // Get POST body content
 $content = file_get_contents('php://input');
-echo $content['responseId'];
+echo $content;
 $userId = $content['originalDetectIntentRequest']['payload']['data']['source']['userId'];
 
 $replyToken = $content['responseId'];
