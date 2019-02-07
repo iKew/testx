@@ -21,7 +21,7 @@ $replyToken = $content['responseId'];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
-				'replyToken' => $replyToken,
+				'replyToken' => '51df74ef-06f0-d225-cba8-d8a71a295b05',
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
@@ -82,4 +82,6 @@ $replyToken = $content['responseId'];
 // 		}
 // 	}
 // }
+// 
+// curl -X POST -H 'Content-Type: application/json' -d '{"responseId":"a36be434-21f4-416b-b020-3273fc54ab60","queryResult":{"queryText":"test","parameters":{"any":"test"},"allRequiredParamsPresent":true,"fulfillmentMessages":[{"text":{"text":["test $test"]},"platform":"LINE"},{"payload":{},"platform":"LINE"},{"text":{"text":[""]}}],"intent":{"name":"projects/volkenzo-92814/agent/intents/68358027-f1e6-44a7-885e-7ead1610b8f1","displayName":"test"},"intentDetectionConfidence":1,"diagnosticInfo":{"end_conversation":true},"languageCode":"th"},"originalDetectIntentRequest":{"payload":{}},"session":"projects/volkenzo-92814/agent/sessions/51df74ef-06f0-d225-cba8-d8a71a295b05"}' 'https://aqueous-refuge-61338.herokuapp.com/webhooks.php'
 echo "OK";
