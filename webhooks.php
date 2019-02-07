@@ -15,7 +15,7 @@ $replyToken = $content['responseId'];
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $userId
+				'text' => 'xxxx'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
