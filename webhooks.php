@@ -7,15 +7,14 @@ $access_token = 'nbNiHyLgU5prZPC7JvvpNZgnX2zGYIihVT8tA4vQrdH1sILvxpfPjzM4YpBauEQ
 
 // Get POST body content
 $content = file_get_contents('php://input');
-echo $content[0];
-$userId = $content['originalDetectIntentRequest']['payload']['data']['source']['userId'];
+$userId = $events['originalDetectIntentRequest']['payload']['data']['source']['userId'];
 
-$replyToken = $content['responseId'];
+$replyToken = $events['responseId'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'xxxx'
+				'text' => $replyToken
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
