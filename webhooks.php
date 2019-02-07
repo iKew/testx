@@ -38,7 +38,7 @@ $replyToken = $content['responseId'];
 
 			echo $result . "\r\n";
 
-}
+
 
 //echo $content;
 // Parse JSON
