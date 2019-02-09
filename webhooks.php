@@ -103,7 +103,7 @@ $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
 $messages = [
 	'type' => 'text',
-	'text' => 'test reply'
+	'text' => $userId
 ];
 
 $data = [
