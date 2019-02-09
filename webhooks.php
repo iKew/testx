@@ -9,7 +9,10 @@ $access_token = 'nbNiHyLgU5prZPC7JvvpNZgnX2zGYIihVT8tA4vQrdH1sILvxpfPjzM4YpBauEQ
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 //$userId = $events['originalDetectIntentRequest']['payload']['data']['source']['userId'];
-echo $events[0]['responseId'];
+echo $events[0];
+
+echo "\n";
+echo $events['responseId'];
 
 echo "\n";
 echo $content;
