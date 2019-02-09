@@ -106,6 +106,7 @@ $data = [
 	'messages' => [$messages],
 ];
 $post = json_encode($data);
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -119,7 +120,7 @@ curl_setopt_array($curl, array(
 	CURLOPT_CUSTOMREQUEST => 'POST',
 	CURLOPT_POSTFIELDS => $post,
 	CURLOPT_HTTPHEADER => array(
-		'authorization: Bearer $access_token',
+		'authorization: Bearer '+$access_token,
 		'cache-control: no-cache',
 		'content-type: application/json'
 	),
