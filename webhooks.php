@@ -103,9 +103,6 @@ $myfile = fopen('log$date.txt', 'a') or die('Unable to open file!');
 $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
 
-if(isset($action))
-{
-
 	$curl = curl_init();
 
 	curl_setopt_array($curl, array(
