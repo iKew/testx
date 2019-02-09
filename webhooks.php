@@ -119,10 +119,9 @@ curl_setopt_array($curl, array(
 	CURLOPT_CUSTOMREQUEST => 'POST',
 	CURLOPT_POSTFIELDS => $post,
 	CURLOPT_HTTPHEADER => array(
-		'authorization: Bearer line_token',
+		'authorization: Bearer $access_token',
 		'cache-control: no-cache',
-		'content-type: application/json',
-		'postman-token: 7f766920-b207–53c4–6059–6d20ceec77ea'
+		'content-type: application/json'
 	),
 ));
 
