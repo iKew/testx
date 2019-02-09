@@ -12,8 +12,6 @@ $events = json_decode($content, true);
 
 $replyToken = $events['responseId'];
 
-echo $replyToken;
-
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -27,6 +25,10 @@ echo $replyToken;
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
+
+
+echo $post;
+
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
  			$ch = curl_init($url);
