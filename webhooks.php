@@ -96,8 +96,8 @@ $date = date('Y-m-d');
 $time = date('H:i:s');
 $json = file_get_contents('php://input');
 $request = json_decode($json, true);
+$replyToken = $request['originalDetectIntentRequest']['payload']['data']['replyToken'];
 $queryText = $request['queryResult']['queryText'];
-$action = $request['queryResult']['action'];
 $userId = $request['originalDetectIntentRequest']['payload']['data']['source']['userId'];
 $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
@@ -107,7 +107,7 @@ $messages = [
 ];
 
 $data = [
-	'to' => $replyToken,
+	'replyToken' => $replyToken,
 	'messages' => [$messages],
 ];
 $post = json_encode($data);
@@ -116,7 +116,7 @@ $headers = array('Content-Type: application/json', 'cache-control: no-cache', 'A
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-	CURLOPT_URL => 'https://api.line.me/v2/bot/message/push',
+	CURLOPT_URL => 'https://api.line.me/v2/bot/message/reply',
 	CURLOPT_SSL_VERIFYPEER => false,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_ENCODING => '',
