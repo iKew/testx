@@ -99,11 +99,12 @@ $request = json_decode($json, true);
 $replyToken = $request['originalDetectIntentRequest']['payload']['data']['replyToken'];
 $queryText = $request['queryResult']['queryText'];
 $userId = $request['originalDetectIntentRequest']['payload']['data']['source']['userId'];
+$intent = $request['queryResult']['intent']['displayName'];
 $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
 $messages = [
 	'type' => 'text',
-	'text' => $userId
+	'text' => 'url:id='. $userId
 ];
 
 $data = [
@@ -113,8 +114,9 @@ $data = [
 $post = json_encode($data);
 
 $headers = array('Content-Type: application/json', 'cache-control: no-cache', 'Authorization: Bearer ' . $access_token);
-$curl = curl_init();
 
+if(isset($intent) && $intent == 'จองโต๊ะ'){
+$curl = curl_init();
 curl_setopt_array($curl, array(
 	CURLOPT_URL => 'https://api.line.me/v2/bot/message/reply',
 	CURLOPT_SSL_VERIFYPEER => false,
@@ -137,4 +139,5 @@ if ($err) {
 	echo 'cURL Error #:' . $err;
 } else {
 	echo $response;
+}
 }
