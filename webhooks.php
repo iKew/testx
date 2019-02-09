@@ -101,8 +101,10 @@ $action = $request['queryResult']['action'];
 $userId = $request['originalDetectIntentRequest']['payload']['data']['source']['userId'];
 $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
+
+
 $data = [
-	'replyToken' => $replyToken,
+	'to' => $replyToken,
 	'messages' => [$messages],
 ];
 $post = json_encode($data);
@@ -119,7 +121,9 @@ curl_setopt_array($curl, array(
 	CURLOPT_TIMEOUT => 30,
 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	CURLOPT_CUSTOMREQUEST => 'POST',
-	CURLOPT_POSTFIELDS => $post,
+	CURLOPT_POSTFIELDS => "{
+	'to' : ".$replyToken.",'messages': [{'type': 'text','text': '$userId ส่งข้อความมาว่า ".$queryText."'}]
+	}",
 	CURLOPT_HTTPHEADER =>$headers,
 ));
 
