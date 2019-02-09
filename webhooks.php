@@ -27,8 +27,6 @@ $replyToken = $events['responseId'];
 			$post = json_encode($data);
 
 
-echo $post;
-
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
  			$ch = curl_init($url);
@@ -40,7 +38,7 @@ echo $post;
  			$result = curl_exec($ch);
  			curl_close($ch);
 
-// 			echo $result . "\r\n";
+			echo $result . "\r\n";
 
 
 
@@ -87,5 +85,4 @@ echo $post;
 // 	}
 // }
 // 
-// curl -X POST -H 'Content-Type: application/json' -d '{"responseId":"a36be434-21f4-416b-b020-3273fc54ab60","queryResult":{"queryText":"test","parameters":{"any":"test"},"allRequiredParamsPresent":true,"fulfillmentMessages":[{"text":{"text":["test $test"]},"platform":"LINE"},{"payload":{},"platform":"LINE"},{"text":{"text":[""]}}],"intent":{"name":"projects/volkenzo-92814/agent/intents/68358027-f1e6-44a7-885e-7ead1610b8f1","displayName":"test"},"intentDetectionConfidence":1,"diagnosticInfo":{"end_conversation":true},"languageCode":"th"},"originalDetectIntentRequest":{"payload":{}},"session":"projects/volkenzo-92814/agent/sessions/51df74ef-06f0-d225-cba8-d8a71a295b05"}' 'https://aqueous-refuge-61338.herokuapp.com/webhooks.php'
-echo "OK";
+//echo "OK";
