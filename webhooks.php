@@ -10,6 +10,9 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 //$userId = $events['originalDetectIntentRequest']['payload']['data']['source']['userId'];
 echo $events;
+
+echo "\n";
+echo $content;
 // $replyToken = $events['responseId'];
 
 // 			// Build message to reply back
