@@ -102,7 +102,11 @@ $userId = $request['originalDetectIntentRequest']['payload']['data']['source']['
 $myfile = fopen('log$date.txt', 'a') or die('Unable to open file!');
 $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
-
+$data = [
+ 				'replyToken' => $replyToken,
+ 				'messages' => [$messages],
+ 			];
+ 			$post = json_encode($data);
 	$curl = curl_init();
 
 	curl_setopt_array($curl, array(
@@ -114,7 +118,7 @@ $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 		CURLOPT_TIMEOUT => 30,
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => 'POST',
-		CURLOPT_POSTFIELDS => '{\r\n\r\n \'to\': \'userid_line ของเรา\',\r\n\r\n \'messages\': [{\r\n\r\n \'type\': \'text\',\r\n\r\n \'text\': \'$userId ส่งข้อความมาว่า $queryText\'\r\n\r\n }]\r\n\r\n}',
+		CURLOPT_POSTFIELDS => $post,
 		CURLOPT_HTTPHEADER => array(
 			'authorization: Bearer line_token',
 			'cache-control: no-cache',
