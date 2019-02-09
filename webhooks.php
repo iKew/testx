@@ -107,6 +107,7 @@ $data = [
 ];
 $post = json_encode($data);
 
+$headers = array('Content-Type: application/json', 'cache-control: no-cache', 'Authorization: Bearer ' . $access_token);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -119,11 +120,7 @@ curl_setopt_array($curl, array(
 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	CURLOPT_CUSTOMREQUEST => 'POST',
 	CURLOPT_POSTFIELDS => $post,
-	CURLOPT_HTTPHEADER => array(
-		'authorization: Bearer '+$access_token,
-		'cache-control: no-cache',
-		'content-type: application/json'
-	),
+	CURLOPT_HTTPHEADER =>$headers,
 ));
 
 $response = curl_exec($curl);
