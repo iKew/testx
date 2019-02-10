@@ -20,7 +20,7 @@ $log = $date.'-'.$time.'\t'.$userId.'\t'.$queryText.'\n';
 
 $columns = array();
 $conn = conpdo('localhost','id8699731_pyrc','id8699731_pyrc','volk20021997');
-$sql = "SELECT * FROM `menu`";
+$sql = "SELECT * FROM `menu` LIMIT 5";
 $rs = getpdo($conn ,$sql);
 foreach ($rs as $value) {
 	$data = [
