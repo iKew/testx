@@ -23,29 +23,30 @@ $conn = conpdo('localhost','id8699731_pyrc','id8699731_pyrc','volk20021997');
 $sql = "SELECT * FROM `menu` LIMIT 5";
 $rs = getpdo($conn ,$sql);
 foreach ($rs as $value) {
+
 	$data = [
-		"thumbnailImageUrl" : "https://pyrc.000webhostapp.com/administer/uploads/".$value['menu_img'],
-		"title" : $value['menu_name'],
-		"text": $value['menu_price'],
-		"actions": [
-			{
-				"type": "url",
-				"label": 'View detail',
-				'uri': 'https://pyrc.000webhostapp.com/index.php?user='.$userId.'&menu=menu'.$value['menu_id'],
-			}
+		"thumbnailImageUrl" => "https://pyrc.000webhostapp.com/administer/uploads/".$value['menu_img'],
+		"title" => $value['menu_name'],
+		"text" => $value['menu_price'],
+		"actions" => [
+			[
+				"type" => "url",
+				"label" => 'View detail',
+				'uri' => 'https://pyrc.000webhostapp.com/index.php?user='.$userId.'&menu=menu'.$value['menu_id'],
+			],
 		]
-	]
-	array_push($columns,$data );
+	];
+	array_push($columns,$data);
 }
 
 $messages = [
-	"type": "template",
-	"altText": "this is a carousel template",
-	"template": {
-		"type": "carousel",
-		"actions": [],
-		"columns": $columns
-	}
+	"type"=> "template",
+	"altText"=> "this is a carousel template",
+	"template"=> [
+		"type"=> "carousel",
+		"actions"=> [],
+		"columns"=> $columns
+	]
 ];
 
 $data = [
