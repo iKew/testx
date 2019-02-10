@@ -115,7 +115,7 @@ $post = json_encode($data);
 
 $headers = array('Content-Type: application/json', 'cache-control: no-cache', 'Authorization: Bearer ' . $access_token);
 
-if(isset($intent) && $intent == 'จองโต๊ะ'){
+if(isset($intent) && $intent == 'BUY'){
 $curl = curl_init();
 curl_setopt_array($curl, array(
 	CURLOPT_URL => 'https://api.line.me/v2/bot/message/reply',
